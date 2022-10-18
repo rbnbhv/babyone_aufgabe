@@ -32,7 +32,7 @@ Die Website läuft und du möchtest, dass auch andere davon profitieren. Damit n
 #### Anforderungen
 1. [X] Passwort zur ```member_v1``` Tabelle hinzufügen
 2. [X] Accounts für Trainer (Anton, Bert und Chris) erstellen
-3. [ ] Login System bauen (Email + Passwort)
+3. [X] Login System bauen (Email + Passwort)
 4. [ ] Datensichtbarkeit auf ```Mitglieder, View, Editierung``` nur für Trainer möglich (Session einbauen)
 
 #### Optional:
