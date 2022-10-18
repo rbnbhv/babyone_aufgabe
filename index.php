@@ -1,13 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1> testing docker container</h1>
-</body>
-</html>
+<?php
+include('mysql.php');
+include('views/header.php');
+?>
+
+<!-- Hero Section  -->
+<section id="hero">
+    <div class="hero container">
+        <div>
+            <h1>Tennisverein<span></span></h1>
+            <h1>Bremerhaven<span></span></h1>
+            <a href="#register" type="button" class="cta">Mitglied registrieren</a>
+        </div>
+    </div>
+</section>
+<!-- End Hero Section  -->
+
+
+<?php
+include('views/footer.php');
