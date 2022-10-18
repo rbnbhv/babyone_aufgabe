@@ -17,6 +17,6 @@
     </div>
 </section>
 <!-- End Footer -->
-<script src="./app.js"></script>
+<script src="../includes/app.js"></script>
 </body>
 </html>

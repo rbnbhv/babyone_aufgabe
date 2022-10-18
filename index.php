@@ -1,5 +1,5 @@
 <?php
-include('mysql.php');
+include('includes/mysql.php');
 include('views/header.php');
 ?>
 

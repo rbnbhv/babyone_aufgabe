@@ -1,6 +1,3 @@
-<?php
-include('mysql.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +8,7 @@ include('mysql.php');
     <title>Webseite des Bremerhavener Tennisvereins</title>
 </head>
 <body>
+
 <!-- Header -->
 <section id="header">
     <div class="header container">
