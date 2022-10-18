@@ -13,7 +13,7 @@ Du möchtest gerne eine automatische Mitgliederkartei im Internet haben. Jedes M
 - Email wird auf Gültigkeit geprüft
 
 #### Anforderungen
-1. [ ] Datenbanktabelle ```member_v1``` erstellen (Entitäten: ID, VORNAME, EMAIL)
+1. [X] Datenbanktabelle ```member_v1``` erstellen (Entitäten: ID, VORNAME, EMAIL)
 2. [ ] Registrierung entwickeln (EMAIL (TYPE EMAIL) und VORNAME required)
 3. [ ] Daten auf HTML als Liste anzeigen lassen (ID, VORNAME, EMAIL)
 4. [ ] Daten sollen geupdated werden können
