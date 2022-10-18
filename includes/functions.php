@@ -15,7 +15,7 @@ function getMysqlConnection(): PDO
 function registerUser(string $forename, string $email, string $password): void
 {
     $mysql = getMysqlConnection();
-    $stmt = $mysql->prepare("INSERT INTO member_v1 (FORENAME, EMAIL, PASSWORD) VALUES (:forename, :email, :password)");
+    $stmt = $mysql->prepare("INSERT INTO member_v1 (forename, email, password) VALUES (:forename, :email, :password)");
     $stmt->bindParam(":forename", $forename);
     $stmt->bindParam(":email", $email);
     $hash = password_hash($password, PASSWORD_BCRYPT);
@@ -23,8 +23,3 @@ function registerUser(string $forename, string $email, string $password): void
     $stmt->execute();
 }
 
-function getCryptedPassword(string $password) : string
-{
-    $cryptedPassword = password_hash($password, PASSWORD_BCRYPT);
-    return $cryptedPassword;
-}
