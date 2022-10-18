@@ -40,6 +40,13 @@ Die Website läuft und du möchtest, dass auch andere davon profitieren. Damit n
 
 ### Aufgabe 4:
 Jedes Mitglied bekommt ein Passwort erstellt, so dass sich die Mitglieder mit ihren E-Mailadressen und Passwörtern anmelden können. Sie können aber nur ihre eigenen Daten sehen.
+
+#### Anforderungen
+1. [ ] Ranking-System als Spalte in Datenbank einbauen [Unterscheidung Mitglied = 1 , Trainer = 2] 
+2. [ ] Mitglieder hat nur Zugriff auf Sichtbarkeit des eigenen Profils
+3. [ ] Trainer hat Rechte auf Zugriff auf alle Mitgliedsprofile und auf Bearbeitung aller Mitgliedsprofile
+
+
 ### Aufgabe 5:
 Um Mitglieder auch telefonisch zu erreichen, fügst du als neues Feature zu jedem Mitglied seine Telefonnummer hinzu. Da sich die Telefonnummer auch mal ändern kann, darf jedes
 
