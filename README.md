@@ -21,6 +21,11 @@ Du möchtest gerne eine automatische Mitgliederkartei im Internet haben. Jedes M
 
 ### Aufgabe 2:
 Du gestaltest ein hübsches Frontend in den Vereinsfarben rot und weiß. Oben links fügst du das Vereinslogo hinzu. Damit du auch neue Mitglieder aufnehmen kannst, während du selber am Vereinsheim bist, achtest du auch auf die Darstellung als Mobile-Version.
+
+#### Anforderungen
+1. [ ] Frontend erstellen (Navigation, Body, Footer)
+2. [ ] Vereinslogo hinzufügen
+
 ### Aufgabe 3:
 Die Website läuft und du möchtest, dass auch andere davon profitieren. Damit nicht jeder Daten ändern und einsehen kann, möchtest du einen Zugriffsschutz, so dass die Trainer Anton, Bert und Chris ebenfalls Daten einsehen, ändern, löschen und hinzufügen können. Sie sollen je ein Passwort erhalten und sich damit und über ihre E-Mail-Kennung am System anmelden können.
 ### Aufgabe 4:
