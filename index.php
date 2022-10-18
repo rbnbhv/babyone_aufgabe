@@ -15,7 +15,7 @@ include('views/header.php');
 </section>
 <!-- End Hero Section  -->
 
-<?php include('views/login.php')?>
+<?php include('login.php') ?>
 
 
 <?php

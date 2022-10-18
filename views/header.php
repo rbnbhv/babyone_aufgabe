@@ -28,7 +28,7 @@
                 <ul>
                     <li><a href="/" data-after="Home">Home</a></li>
                     <li><a href="/list.php" data-after="Mitglieder">Mitglieder</a></li>
-                    <li><a href="/register.php" data-after="register">register</a></li>
+                    <li><a href="/login.php" data-after="Mitglieder">Login</a></li>
                 </ul>
             </div>
         </div>
