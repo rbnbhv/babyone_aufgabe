@@ -35,14 +35,11 @@ Die Website läuft und du möchtest, dass auch andere davon profitieren. Damit n
 3. [X] Login System bauen (Email + Passwort)
 4. [X] Datensichtbarkeit auf ```Mitglieder, View, Editierung``` nur für Trainer möglich (Session einbauen)
 
-#### Optional:
-5. [X] Für die Registrierung programmiere ich eine Registrierung um die Passwörter verschlüsseln zu lassen
-
 ### Aufgabe 4:
 Jedes Mitglied bekommt ein Passwort erstellt, so dass sich die Mitglieder mit ihren E-Mailadressen und Passwörtern anmelden können. Sie können aber nur ihre eigenen Daten sehen.
 
 #### Anforderungen
-1. [ ] Ranking-System als Spalte in Datenbank einbauen [Unterscheidung Mitglied = 1 , Trainer = 2] 
+1. [X] Ranking-System als Spalte in Datenbank einbauen [Unterscheidung Mitglied = 1 , Trainer = 2] 
 2. [ ] Mitglieder hat nur Zugriff auf Sichtbarkeit des eigenen Profils
 3. [ ] Trainer hat Rechte auf Zugriff auf alle Mitgliedsprofile und auf Bearbeitung aller Mitgliedsprofile
 
