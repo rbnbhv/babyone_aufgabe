@@ -35,7 +35,7 @@ include('views/header.php');
                                     <td><?php echo $row->forename ?></td>
                                     <td><?php echo $row->email ?></td>
                                     <td>
-                                        <a href="view.php?id=<?php echo $row->id ?>"
+                                        <a href="viewMemberDetails.php?id=<?php echo $row->id ?>"
                                            class="btn">Mitglied anzeigen</a>
                                         <a href="editUserDetails.php?id=<?php echo $row->id ?>"
                                            class="btn">Mitglied bearbeiten</a>
