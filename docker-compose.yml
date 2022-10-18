@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  shop:
+    container_name: tennis_digital
+    image: dockware/essentials:latest
+    ports:
+      - "22:22" # ssh
+      - "80:80" # apache2
+      - "443:443" # apache2
+      - "3306:3306" # mysql
+    volumes:
+      - ".:/var/www/html/public"
+      - "db_volume:/var/lib/mysql"
+    networks:
+      - web
+    environment:
+      - XDEBUG_ENABLED=1
+      - PHP_VERSION=8.0
+
+## ***********************************************************************
+##  PERSISTENT DOCKER VOLUMES
+## ***********************************************************************
+volumes:
+  db_volume:
+    driver: local
+
+networks:
+  web:
+    external: false
