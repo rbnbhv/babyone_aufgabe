@@ -50,7 +50,3 @@ if (isset($_POST["submit_login"])) {
         </div>
     </section>
     <!-- END login Section -->
-
-<?php
-include('views/footer.php');
-?>
