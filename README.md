@@ -35,9 +35,6 @@ Die Website läuft und du möchtest, dass auch andere davon profitieren. Damit n
 3. [X] Login System bauen (Email + Passwort)
 4. [X] Datensichtbarkeit auf ```Mitglieder, View, Editierung``` nur für Trainer möglich (Session einbauen)
 
-#### Optional:
-5. [X] Für die Registrierung programmiere ich eine Registrierung um die Passwörter verschlüsseln zu lassen
-
 ### Aufgabe 4:
 Jedes Mitglied bekommt ein Passwort erstellt, so dass sich die Mitglieder mit ihren E-Mailadressen und Passwörtern anmelden können. Sie können aber nur ihre eigenen Daten sehen.
 ### Aufgabe 5:
