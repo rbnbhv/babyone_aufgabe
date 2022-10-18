@@ -16,8 +16,8 @@ Du möchtest gerne eine automatische Mitgliederkartei im Internet haben. Jedes M
 1. [X] Datenbanktabelle ```member_v1``` erstellen (Entitäten: ID, VORNAME, EMAIL)
 2. [X] Registrierung entwickeln (EMAIL (TYPE EMAIL) und VORNAME required)
 3. [X] Daten auf HTML als Liste anzeigen lassen (ID, VORNAME, EMAIL)
-4. [ ] Daten sollen geupdated werden können
-5. [ ] Daten sollen sich löschen lassen
+4. [X] Daten sollen geupdated werden können
+5. [X] Daten sollen sich löschen lassen
 
 ### Aufgabe 2:
 Du gestaltest ein hübsches Frontend in den Vereinsfarben rot und weiß. Oben links fügst du das Vereinslogo hinzu. Damit du auch neue Mitglieder aufnehmen kannst, während du selber am Vereinsheim bist, achtest du auch auf die Darstellung als Mobile-Version.
