@@ -28,6 +28,17 @@ Du gestaltest ein hübsches Frontend in den Vereinsfarben rot und weiß. Oben li
 
 ### Aufgabe 3:
 Die Website läuft und du möchtest, dass auch andere davon profitieren. Damit nicht jeder Daten ändern und einsehen kann, möchtest du einen Zugriffsschutz, so dass die Trainer Anton, Bert und Chris ebenfalls Daten einsehen, ändern, löschen und hinzufügen können. Sie sollen je ein Passwort erhalten und sich damit und über ihre E-Mail-Kennung am System anmelden können.
+
+#### Anforderungen
+1. [ ] Passwort zur ```member_v1``` Tabelle hinzufügen
+2. [ ] Accounts für Trainer (Anton, Bert und Chris) erstellen
+3. [ ] Login System bauen (Email + Passwort)
+4. [ ] Datensichtbarkeit auf ```Mitglieder, View, Editierung``` nur für Trainer möglich (Session einbauen)
+
+#### Optional:
+5. [X] Für die Registrierung programmiere ich eine Registrierung um die Passwörter verschlüsseln zu lassen
+
+
 ### Aufgabe 4:
 Jedes Mitglied bekommt ein Passwort erstellt, so dass sich die Mitglieder mit ihren E-Mailadressen und Passwörtern anmelden können. Sie können aber nur ihre eigenen Daten sehen.
 ### Aufgabe 5:
