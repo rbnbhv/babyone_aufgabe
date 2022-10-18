@@ -306,6 +306,50 @@ p {
 
 /* End Hero Section */
 
+/* list Section */
+#list .list {
+    flex-direction: column;
+    text-align: center;
+    max-width: 2500px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#list .list-header h1 {
+    margin-bottom: 80px;
+}
+
+#list .list-header {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+#list .list-header h2 {
+    font-size: 3rem;
+    color: black;
+    margin-top: 50px;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+#list .table th {
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+    padding: 10px 10px;
+}
+#list .table td {
+    font-size: 1.5rem;
+    color: black;
+    text-align: center;
+    padding: 8px 8px;
+}
+#list .table td a {
+    font-size: 1.5rem;
+    padding: 12px;
+    color: crimson;
+}
+/* End list Section */
+
 /* members Section */
 #members .members {
     flex-direction: column;
@@ -347,7 +391,6 @@ p {
     font-size: 1.5rem;
     padding: 2px 2px;
 }
-
 /* End members Section */
 
 /* Register Section */
@@ -602,7 +645,28 @@ p {
         font-size: 2rem;
         padding: 2px 2px;
     }
-    /* End Hero */
+    #list h2 {
+        font-size: 3.5rem;
+        color: black;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+    #list .table th {
+        font-size: 3rem;
+        color: black;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    #list .table td {
+        font-size: 2rem;
+        color: black;
+        text-align: center;
+        padding: 20px 20px;
+    }
+    #list .table a {
+        font-size: 2rem;
+        padding: 2px 2px;
+    }
 }
 
 /* End Media Query For Tablet */
