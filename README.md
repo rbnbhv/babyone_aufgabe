@@ -15,7 +15,7 @@ Du möchtest gerne eine automatische Mitgliederkartei im Internet haben. Jedes M
 #### Anforderungen
 1. [X] Datenbanktabelle ```member_v1``` erstellen (Entitäten: ID, VORNAME, EMAIL)
 2. [X] Registrierung entwickeln (EMAIL (TYPE EMAIL) und VORNAME required)
-3. [ ] Daten auf HTML als Liste anzeigen lassen (ID, VORNAME, EMAIL)
+3. [X] Daten auf HTML als Liste anzeigen lassen (ID, VORNAME, EMAIL)
 4. [ ] Daten sollen geupdated werden können
 5. [ ] Daten sollen sich löschen lassen
 

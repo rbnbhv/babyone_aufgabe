@@ -44,6 +44,7 @@ if (isset($_POST["submit"])) {
                 <br>
             </table>
         </div>
+        <a href="list.php">Zeige Liste unserer Mitglieder</a>
     </div>
 </div>
 </body>
