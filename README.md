@@ -12,6 +12,13 @@ Du möchtest gerne eine automatische Mitgliederkartei im Internet haben. Jedes M
 - Neue Mitglieder können über Eingabe-Maske hinzugefügt werden
 - Email wird auf Gültigkeit geprüft
 
+#### Anforderungen
+1. [ ] Datenbanktabelle ```member_v1``` erstellen (Entitäten: ID, VORNAME, EMAIL)
+2. [ ] Registrierung entwickeln (EMAIL (TYPE EMAIL) und VORNAME required)
+3. [ ] Daten auf HTML als Liste anzeigen lassen (ID, VORNAME, EMAIL)
+4. [ ] Daten sollen geupdated werden können
+5. [ ] Daten sollen sich löschen lassen
+
 ### Aufgabe 2:
 Du gestaltest ein hübsches Frontend in den Vereinsfarben rot und weiß. Oben links fügst du das Vereinslogo hinzu. Damit du auch neue Mitglieder aufnehmen kannst, während du selber am Vereinsheim bist, achtest du auch auf die Darstellung als Mobile-Version.
 ### Aufgabe 3:
