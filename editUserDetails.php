@@ -34,7 +34,7 @@ $result = $stmt->fetch();
         </div>
         <div class="card-body">
             <table class="table table-bordered table-striped">
-                <form action="editPost.php" method="post">
+                <form action="editUserDetailsPost.php" method="post">
                     <div class=form-group>
                         <input type="hidden" name="id" value="<?php echo $result['id'] ?>"><br>
                         <input type="text" name="forename" value="<?php echo $result['forename'] ?>"
