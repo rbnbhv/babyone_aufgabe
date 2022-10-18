@@ -327,22 +327,24 @@ p {
 #members h2 {
     font-size: 3rem;
     color: black;
-    margin-bottom: 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
     text-transform: uppercase;
 }
 #members .table th {
     font-size: 2rem;
     color: black;
     text-align: center;
+    padding: 5px 5px;
 }
 #members .table td {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: black;
     text-align: center;
     padding: 8px 8px;
 }
 #members .table a {
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: 2px 2px;
 }
 
@@ -406,6 +408,65 @@ p {
     margin: 25px auto;
 }
 /* End Register */
+
+/* login Section */
+#login .login {
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#login .login-header h1 {
+    margin-bottom: 50px;
+}
+
+#login .login-header {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#login h2 {
+    font-size: 3rem;
+    color: black;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#login label {
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+}
+#login input {
+    width: 90%;
+    padding: 15px 10px;
+    margin: 15px 0;
+    display: inline-block;
+    border: 1px solid crimson;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+#login .login-btn {
+    width: 90%;
+    background-color: crimson;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#login a {
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+    margin-top: 155px;
+}
+#login .links {
+    margin: 25px auto;
+}
+/* End login */
 
 /* Footer */
 #footer {
@@ -575,15 +636,11 @@ p {
         font-size: 1.8rem;
     }
 
-        #header .nav-list ul a:after {
+    #header .nav-list ul a:after {
         display: none;
     }
 
     /* End header */
-    #members .member-bottom .member-item {
-        flex-basis: 22%;
-        margin: 1.5%;
-    }
     @media only screen and (min-width: 1600px) {
         #header .logo {
             padding-right: 140px;

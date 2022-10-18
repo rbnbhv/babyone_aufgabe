@@ -1,5 +1,5 @@
 <?php
-include('includes/mysql.php');
+include('includes/functions.php');
 include('views/header.php');
 ?>
 
@@ -9,11 +9,13 @@ include('views/header.php');
         <div>
             <h1>Tennisverein<span></span></h1>
             <h1>Bremerhaven<span></span></h1>
-            <a href="#register" type="button" class="cta">Mitglied registrieren</a>
+            <a href="/register.php" type="button" class="cta">Mitglied registrieren</a>
         </div>
     </div>
 </section>
 <!-- End Hero Section  -->
+
+<?php include('views/login.php')?>
 
 
 <?php

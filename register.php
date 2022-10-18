@@ -1,51 +1,53 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <title>Mitglied registrieren</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-
 <?php
-if (isset($_POST["submit"])) {
-    require("mysql.php");
-    //Mail überprüfen
-    $stmt = $mysql->prepare("SELECT * FROM member_v1 WHERE email = :email");
+require('includes/functions.php');
+require('views/header.php');
+
+$message = '';
+if (isset($_POST['submit_register'])) {
+    $mysql = getMysqlConnection();
+    $stmt = $mysql->prepare("SELECT * FROM member_v1 WHERE EMAIL = :email");
     $stmt->bindParam(":email", $_POST["email"]);
     $stmt->execute();
     $count = $stmt->rowCount();
     if ($count == 0) {
-        // Email ist frei
-        $stmt = $mysql->prepare("INSERT INTO member_v1 (forename, email) VALUES (:name, :email)");
-        $stmt->bindParam(":name", $_POST["forename"]);
-        $stmt->bindParam(":email", $_POST["email"]);
-        $stmt->execute();
-        echo "Die Registrierung war erfolgreich!";
+        if ($_POST["pw"] == $_POST["pw2"]) {
+            registerUser($_POST["forename"], $_POST["email"], $_POST["pw"]);
+            $message = "Der Account wurde angelegt!";
+        } else {
+            $message = "Die Passwörter stimmen nicht überein";
+        }
     } else {
-        echo "Das Mitglied ist bereits eingetragen!";
+        $message = "Die Email ist bereits vergeben!";
     }
 }
 ?>
-
-<div class="container">
-    <div class="col-md-12 mt-4 card">
-        <div class="card-header">
-            <h3>Mitglied registrieren</h3>
+    <!-- register Section -->
+    <section id="register">
+        <div class="login container">
+            <div class="login-header">
+                <h1 class="section-title"><span>Jetzt</span> Registrieren</h1>
+                <div class="card-header">
+                    <h2><?php echo "$message" ?></h2>
+                </div>
+                <div class="member-bottom">
+                    <?php if (!$_POST) { ?>
+                        <form action="register.php" method="post">
+                            <label for="forename">Vorname</label><br>
+                            <input type="text" name="forename" placeholder="Bitte Vornamen eingeben" required><br>
+                            <label for="email">Email</label><br>
+                            <input type="email" name="email" placeholder="Bitte Email eingeben" required><br>
+                            <label for="pw">Passwort</label><br>
+                            <input type="password" name="pw" placeholder="Gewünschtes Passwort" required><br>
+                            <label for="pw">Passwort wiederholen</label><br>
+                            <input type="password" name="pw2" placeholder="Password wiederholen" required><br>
+                            <button type="submit" name="submit_register" class="register-btn">Registrieren</button>
+                        </form>
+                    <?php } ?>
+                    <br>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <table class="table table-bordered table-striped">
-                <form action="register.php" method="post">
-                    <input type="text" name="forename" placeholder="Vorname" class="form-control" required><br>
-                    <input type="email" name="email" placeholder="Email" class="form-control" required><br>
-                    <button type="submit" name="submit" class="btn btn-primary btn-block">Registrieren</button>
-                </form>
-                <br>
-            </table>
-        </div>
-        <a href="list.php">Zeige Liste unserer Mitglieder</a>
-    </div>
-</div>
-</body>
-</html>
+    </section>
+    <!-- END register Section -->
+<?php
+require('views/footer.php');
