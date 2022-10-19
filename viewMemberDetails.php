@@ -2,7 +2,18 @@
 include('includes/functions.php');
 include('views/header.php');
 
+session_start();
 $message = '';
+$id = $_GET['id'];
+
+
+if (!isset($_SESSION['email'])) {
+    header('Location: index.php');
+}
+$serverrankUser = getRank($_SESSION['email']);
+if (!($id == $_SESSION['id'] || ($serverrankUser == 1))) {
+    header('Location: index.php');
+}
 ?>
 
     <section id="members">
@@ -14,7 +25,6 @@ $message = '';
                 </div>
                 <div class="member-bottom">
                     <?php
-                    session_start();
                     if (isset($_SESSION["email"])) {
                         if (!isset($_GET['id'])) {
                             $message = 'Keine ID verfügbar';

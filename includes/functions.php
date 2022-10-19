@@ -23,3 +23,13 @@ function registerUser(string $forename, string $email, string $password, int $se
     $stmt->bindParam(":serverrank", $serverrank);
     $stmt->execute();
 }
+
+function getRank($email): int
+{
+    $mysql = getMysqlConnection();
+    $stmt = $mysql->prepare("SELECT * FROM member_v1 WHERE email = :email");
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    return $row['serverrank'];
+}

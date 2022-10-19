@@ -39,8 +39,8 @@ Die Website läuft und du möchtest, dass auch andere davon profitieren. Damit n
 Jedes Mitglied bekommt ein Passwort erstellt, so dass sich die Mitglieder mit ihren E-Mailadressen und Passwörtern anmelden können. Sie können aber nur ihre eigenen Daten sehen.
 
 #### Anforderungen
-1. [X] Ranking-System als Spalte in Datenbank einbauen [Unterscheidung Mitglied = 1 , Trainer = 2] 
-2. [ ] Mitglieder hat nur Zugriff auf Sichtbarkeit des eigenen Profils
+1. [X] Ranking-System als Spalte in Datenbank einbauen [Unterscheidung Mitglied = 0 , Trainer = 1] 
+2. [X] Mitglieder hat nur Zugriff auf Sichtbarkeit des eigenen Profils
 3. [ ] Trainer hat Rechte auf Zugriff auf alle Mitgliedsprofile und auf Bearbeitung aller Mitgliedsprofile
 
 
