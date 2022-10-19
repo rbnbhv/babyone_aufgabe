@@ -3,25 +3,30 @@ include('includes/functions.php');
 include('views/header.php');
 ?>
 
-    <!-- list Section -->
-    <section id="list">
-        <div class="list container">
-            <div class="list-header">
-                <h1 class="section-title"><span>BTV </span>Mitglieder</h1>
-                <h2>Mitgliederliste</h2>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Mitgliedsnr</th>
-                        <th>Vorname</th>
-                        <th>Email</th>
-                        <th>Optionen</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    session_start();
-                    if (isset($_SESSION["email"])) {
+<!-- list Section -->
+<section id="list">
+    <div class="list container">
+        <div class="list-header">
+            <h1 class="section-title"><span>BTV </span>Mitglieder</h1>
+            <h2>Mitgliederliste</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Mitgliedsnr</th>
+                    <th>Vorname</th>
+                    <th>Email</th>
+                    <th>Optionen</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                session_start();
+                $id = $_SESSION['id'];
+                if (!isset($_SESSION["email"])) {
+                    header("Location: login.php");
+                } else {
+                    $serverrankUser = getRank($_SESSION['email']);
+                    if ($serverrankUser > 0) {
                         $mysql = getMysqlConnection();
                         $stmt = $mysql->prepare("SELECT * FROM member_v1");
                         $stmt->execute();
@@ -51,19 +56,18 @@ include('views/header.php');
                             </tr>
                             <?php
                         }
-
                     } else {
-                        header("Location: login.php");
+                        header("Location: viewMemberDetails.php?id=$id");
                     }
-                    ?>
-                    </tbody>
-                </table>
-            </div>
+                }
+                ?>
+                </tbody>
+            </table>
         </div>
-    </section>
-    <!-- End list Section -->
-
+    </div>
+</section>
+<!-- End list Section -->
 
 <?php
-include('views/footer.php')
+include('views/footer.php');
 ?>

@@ -41,7 +41,7 @@ Jedes Mitglied bekommt ein Passwort erstellt, so dass sich die Mitglieder mit ih
 #### Anforderungen
 1. [X] Ranking-System als Spalte in Datenbank einbauen [Unterscheidung Mitglied = 0 , Trainer = 1] 
 2. [X] Mitglieder hat nur Zugriff auf Sichtbarkeit des eigenen Profils
-3. [ ] Trainer hat Rechte auf Zugriff auf alle Mitgliedsprofile und auf Bearbeitung aller Mitgliedsprofile
+3. [X] Trainer hat Rechte auf Zugriff auf alle Mitgliedsprofile und auf Bearbeitung aller Mitgliedsprofile
 
 
 ### Aufgabe 5:

@@ -2,11 +2,22 @@
 require('includes/functions.php');
 require('views/header.php');
 
+session_start();
+$message = '';
+
+if (!isset($_SESSION['email'])) {
+    header('Location: index.php');
+}
+$id = $_POST['id'];
+
+$serverrankUser = getRank($_SESSION['email']);
+if (!($serverrankUser == 1)) {
+    header('Location: index.php');
+}
+
 if (isset($_POST['submit'])) {
-    $id = $_POST['id'];
     $forename = $_POST['forename'];
     $email = $_POST['email'];
-
     $mysql = getMysqlConnection();
     $stmt = $mysql->prepare("UPDATE `member_v1` SET `forename` =:forename, `email` =:email WHERE `id` = :id");
     $stmt->bindParam(':id', $id);
@@ -14,33 +25,21 @@ if (isset($_POST['submit'])) {
     $stmt->bindParam(':email', $email);
     if ($stmt->execute()) {
         header("Location: list.php");
+    } else {
+        $message = 'Query überprüfen.';
     }
-    else {
-        echo 'Error!!';
-    }
-}
-else {
-    echo 'Error!';
 }
 
-if (isset ($_POST['delete'])) {
-    $id = $_POST['id'];
+if (isset($_POST['deleteUser'])) {
     $mysql = getMysqlConnection();
     $stmt = $mysql->prepare("DELETE FROM `member_v1` WHERE id = :id");
     $stmt->bindParam(':id', $id);
     if ($stmt->execute()) {
-        header("Location: register.php");
-    }
-    else {
-        echo 'Error!! Kann nicht gelöscht werden!';
+        header("Location: list.php");
+    } else {
+        $message = 'Query überprüfen.';
     }
 }
-else {
-    echo 'Error, kann nicht gelöscht werden!';
-}
-
-
-$message = '';
 ?>
 
     <!-- edit-user Section -->
@@ -53,18 +52,13 @@ $message = '';
                 </div>
                 <div class="edit-user-bottom">
                     <?php
-                    session_start();
                     if (isset($_SESSION["email"])) {
                         if (!isset($_GET['id'])) {
-                            $message = 'Error! Keine ID verfügbar';
+                            $message = 'Keine ID verfügbar.';
                         } else {
-                            $id = $_GET['id'];
-
                             $mysql = getMysqlConnection();
                             $stmt = $mysql->prepare("select * FROM member_v1 WHERE `id` = :id");
-
-                            $stmt->bindParam(':id', $id);
-
+                            $stmt->bindParam(':id', $_GET['id']);
                             $stmt->execute();
                             $result = $stmt->fetch();
                             ?>
@@ -80,15 +74,17 @@ $message = '';
                                         <input type="email" name="email" value="<?php echo $result['email'] ?>"
                                                placeholder="Email"
                                                class="form-control" required><br>
-                                        <button type="submit" name="submit" class="edit-user-btn">Daten Editieren</button>
-                                        <button type="submit" name="delete" class="edit-user-btn">Mitglied löschen</button>
+                                        <button type="submit" name="submit" class="edit-user-btn">Daten Editieren
+                                        </button>
+                                        <button type="submit" name="deleteUser" class="edit-user-btn">Mitglied löschen
+                                        </button>
                                 </form>
 
                                 <br>
                             </table>
                         <?php }
                     } else {
-                        $message = 'Keine gültige Session!';
+                        $message = 'Keine gültige Session.';
                     }
                     ?>
                     <div class="links">
@@ -99,7 +95,6 @@ $message = '';
         </div>
     </section>
     <!-- End edit-user Section -->
-
 
 <?php
 include('views/footer.php');
