@@ -17,7 +17,7 @@
         </div>
         <div class="nav-bar">
             <div class="brand">
-                <a href="#hero">
+                <a href="/">
                     <h1>Bremerhavener Tennisverein</h1>
                 </a>
             </div>
