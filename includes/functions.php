@@ -12,13 +12,24 @@ function getMysqlConnection(): PDO
     return $mysql;
 }
 
-function registerUser(string $forename, string $email, string $password): void
+function registerUser(string $forename, string $email, string $password, int $serverrank): void
 {
     $mysql = getMysqlConnection();
-    $stmt = $mysql->prepare("INSERT INTO member_v1 (forename, email, password) VALUES (:forename, :email, :password)");
+    $stmt = $mysql->prepare("INSERT INTO member_v1 (forename, email, password, serverrank) VALUES (:forename, :email, :password, :serverrank)");
     $stmt->bindParam(":forename", $forename);
     $stmt->bindParam(":email", $email);
     $hash = password_hash($password, PASSWORD_BCRYPT);
     $stmt->bindParam(":password", $hash);
+    $stmt->bindParam(":serverrank", $serverrank);
     $stmt->execute();
+}
+
+function getRank($email): int
+{
+    $mysql = getMysqlConnection();
+    $stmt = $mysql->prepare("SELECT * FROM member_v1 WHERE email = :email");
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    return $row['serverrank'];
 }

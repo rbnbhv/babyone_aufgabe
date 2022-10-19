@@ -11,7 +11,7 @@ if (isset($_POST['submit_register'])) {
     $count = $stmt->rowCount();
     if ($count == 0) {
         if ($_POST["pw"] == $_POST["pw2"]) {
-            registerUser($_POST["forename"], $_POST["email"], $_POST["pw"]);
+            registerUser($_POST["forename"], $_POST["email"], $_POST["pw"], 0);
             $message = "Der Account wurde angelegt!";
         } else {
             $message = "Die Passwörter stimmen nicht überein";
