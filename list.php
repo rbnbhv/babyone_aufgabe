@@ -25,24 +25,24 @@ include('views/header.php');
                 if (!isset($_SESSION["email"])) {
                     header("Location: login.php");
                 } else {
-                    $serverrankUser = getRank($_SESSION['email']);
-                    if ($serverrankUser > 0) {
+                    $isTrainer = isTrainer($id);
+                    if ($isTrainer) {
                         $mysql = getMysqlConnection();
                         $stmt = $mysql->prepare("SELECT * FROM member_v1");
                         $stmt->execute();
                         $stmt->setFetchMode(PDO::FETCH_OBJ);
                         $result = $stmt->fetchAll();
                         if ($result) {
-                            foreach ($result as $row) {
+                            foreach ($result as $item) {
                                 ?>
                                 <tr>
-                                    <td><?php echo $row->id; ?></td>
-                                    <td><?php echo $row->forename ?></td>
-                                    <td><?php echo $row->email ?></td>
+                                    <td><?php echo $item->id; ?></td>
+                                    <td><?php echo $item->forename ?></td>
+                                    <td><?php echo $item->email ?></td>
                                     <td>
-                                        <a href="viewMemberDetails.php?id=<?php echo $row->id ?>"
+                                        <a href="viewMemberDetails.php?id=<?php echo $item->id ?>"
                                            class="btn">Mitglied anzeigen</a>
-                                        <a href="editUserDetails.php?id=<?php echo $row->id ?>"
+                                        <a href="editUserDetails.php?id=<?php echo $item->id ?>"
                                            class="btn">Mitglied bearbeiten</a>
                                     </td>
                                 </tr>
