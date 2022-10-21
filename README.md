@@ -54,7 +54,7 @@ Da sich die Telefonnummer auch mal ändern kann, darf jedes Mitglied seine Telef
 3. [X] Telefonnummer muss mit "025" oder mit "017" beginnen
 4. [X] Telefonnummer muss mindestens 10-stellig sein
 5. [X] Es sind nur Zahlen erlaubt und ein Minuszeichen
-6. [ ] Telefonnummer kann von Mitglied geändert werden
+6. [X] Telefonnummer kann von Mitglied geändert werden
 
 Mitglied seine Telefonnummer ändern. Da der Verein nur lokale Mitglieder hat, dürfen die Telefonnummern nur mit “025” anfangen oder mit “017” (bei Handy-Nummern) und sie müssen mindestens 10-stellig sein. Es sind nur Zahlen erlaubt und ein “Minus-Zeichen”.
 ### Aufgabe 6:
