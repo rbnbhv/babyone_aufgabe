@@ -391,6 +391,37 @@ p {
     font-size: 1.5rem;
     padding: 2px 2px;
 }
+#members input {
+    width: 100%;
+    padding: 8px 8px;
+    margin: 15px 0;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+#members button {
+    display: inline-block;
+    padding: 10px 30px;
+    color: black;
+    background-color: transparent;
+    border: 2px solid crimson;
+    border-radius: 6px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 100px;
+    transition: 0.3s ease;
+    transition-property: background-color, color;
+}
+#members button:hover {
+    color: white;
+    background-color: crimson;
+}
+
 /* End members Section */
 
 /* Register Section */
@@ -430,16 +461,24 @@ p {
     border: 1px solid crimson;
     border-radius: 5px;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 #register .register-btn {
-    width: 90%;
-    background-color: crimson;
+    display: inline-block;
+    padding: 10px 30px;
+    color: black;
+    background-color: transparent;
+    border: 2px solid crimson;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 40px;
+    transition: 0.3s ease;
+    transition-property: background-color, color;
+}
+#register .register-btn:hover {
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: crimson;
 }
 #register a {
     font-size: 2rem;
@@ -489,16 +528,26 @@ p {
     border: 1px solid crimson;
     border-radius: 5px;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
 }
 #login .login-btn {
-    width: 90%;
-    background-color: crimson;
+    display: inline-block;
+    padding: 10px 30px;
+    color: black;
+    background-color: transparent;
+    border: 2px solid crimson;
+    border-radius: 6px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 40px;
+    transition: 0.3s ease;
+    transition-property: background-color, color;
+}
+#login .login-btn:hover {
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: crimson;
 }
 #login a {
     font-size: 2rem;
@@ -548,17 +597,27 @@ p {
     border: 1px solid crimson;
     border-radius: 5px;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
 }
 #edit-user .edit-user-btn {
-    width: 90%;
-    background-color: crimson;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    display: inline-block;
+    padding: 10px 30px;
+    color: black;
+    background-color: transparent;
+    border: 2px solid crimson;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 100px;
+    transition: 0.3s ease;
+    transition-property: background-color, color;
 }
+#edit-user .edit-user-btn:hover {
+    color: white;
+    background-color: crimson;
+}
+
 #edit-user a {
     font-size: 2rem;
     color: black;
