@@ -8,32 +8,21 @@ $message = '';
 if (!isset($_SESSION['email'])) {
     header('Location: index.php');
 }
-$id = $_POST['id'];
 
-$serverrankUser = getRank($_SESSION['email']);
-if (!($serverrankUser == 1)) {
+$isTrainer = isTrainer($_SESSION['id']);
+if (!$isTrainer) {
     header('Location: index.php');
 }
 
 if (isset($_POST['submit'])) {
-    $forename = $_POST['forename'];
-    $email = $_POST['email'];
-    $mysql = getMysqlConnection();
-    $stmt = $mysql->prepare("UPDATE `member_v1` SET `forename` =:forename, `email` =:email WHERE `id` = :id");
-    $stmt->bindParam(':id', $id);
-    $stmt->bindParam(':forename', $forename);
-    $stmt->bindParam(':email', $email);
-    if ($stmt->execute()) {
-        header("Location: list.php");
-    } else {
-        $message = 'Query überprüfen.';
-    }
+    editUserDetails($_POST['id'], $_POST['forename'], $_POST['phonenumber']);
+    $message = 'Die Daten wurden erfolgreich geändert!';
 }
 
 if (isset($_POST['deleteUser'])) {
     $mysql = getMysqlConnection();
     $stmt = $mysql->prepare("DELETE FROM `member_v1` WHERE id = :id");
-    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':id', $_POST['id']);
     if ($stmt->execute()) {
         header("Location: list.php");
     } else {
@@ -52,37 +41,47 @@ if (isset($_POST['deleteUser'])) {
                 </div>
                 <div class="edit-user-bottom">
                     <?php
-                    if (isset($_SESSION["email"])) {
+                    if (isset($_SESSION['id'])) {
                         if (!isset($_GET['id'])) {
                             $message = 'Keine ID verfügbar.';
                         } else {
-                            $mysql = getMysqlConnection();
-                            $stmt = $mysql->prepare("select * FROM member_v1 WHERE `id` = :id");
-                            $stmt->bindParam(':id', $_GET['id']);
-                            $stmt->execute();
-                            $result = $stmt->fetch();
-                            ?>
-                            <table class="table">
-                                <form action="editUserDetails.php" method="post">
-                                    <div class=form-group>
-                                        <input type="hidden" name="id" value="<?php echo $result['id'] ?>"><br>
-                                        <label for="fname">Vorname</label><br>
-                                        <input type="text" name="forename" value="<?php echo $result['forename'] ?>"
-                                               placeholder="Vorname"
-                                               class="form-control" required><br>
-                                        <label for="email">Email</label><br>
-                                        <input type="email" name="email" value="<?php echo $result['email'] ?>"
-                                               placeholder="Email"
-                                               class="form-control" required><br>
-                                        <button type="submit" name="submit" class="edit-user-btn">Daten Editieren
-                                        </button>
-                                        <button type="submit" name="deleteUser" class="edit-user-btn">Mitglied löschen
-                                        </button>
-                                </form>
+                            $result = getUserInformation($_GET['id']);
+                            if ($result) {
+                                foreach ($result as $item) {
 
-                                <br>
-                            </table>
-                        <?php }
+                                    ?>
+                                    <table class="table">
+                                        <form action="editUserDetails.php?id=<?php echo $_GET['id'] ?>" method="post">
+                                            <div class=form-group>
+                                                <input type="hidden" name="id" value="<?php echo $item['id'] ?>"><br>
+                                                <label for="fname">Vorname</label><br>
+                                                <input type="text" name="forename"
+                                                       value="<?php echo $item['forename'] ?>"
+                                                       placeholder="Vorname"
+                                                       class="form-control" required><br>
+                                                <label for="email">Email</label><br>
+                                                <input type="email" name="email" value="<?php echo $item['email'] ?>"
+                                                       placeholder="Email"
+                                                       class="form-control" required><br>
+                                                <label for="phone">Telefonnummer</label><br>
+                                                <input type="tel" minlength="10"
+                                                       title="Die Telefonnummer muss mindestens 10 Zeichen haben"
+                                                       name="phonenumber" value="<?php echo $item['phonenumber'] ?>"
+                                                       pattern="0(17|25)([0-9]{0,})([-]{0,1})([0-9]{4,})"/><br>
+                                                <button type="submit" name="submit" class="edit-user-btn">Daten
+                                                    Editieren
+                                                </button>
+                                                <button type="submit" name="deleteUser" class="edit-user-btn">Mitglied
+                                                    löschen
+                                                </button>
+                                        </form>
+
+                                        <br>
+                                    </table>
+                                    <?php
+                                }
+                            }
+                        }
                     } else {
                         $message = 'Keine gültige Session.';
                     }

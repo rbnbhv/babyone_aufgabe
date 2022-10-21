@@ -7,26 +7,27 @@ session_destroy();
 session_start();
 $message = '';
 
-if (isset($_POST["submit_login"])) {
+if (isset($_POST['submit_login'])) {
     $mysql = getMysqlConnection();
     $stmt = $mysql->prepare("SELECT * FROM member_v1 WHERE email = :email");
-    $stmt->bindParam(":email", $_POST["email"]);
+    $stmt->bindParam(':email', $_POST['email']);
     $stmt->execute();
     $count = $stmt->rowCount();
     if ($count == 1) {
         $row = $stmt->fetch();
-        if (password_verify($_POST["pw"], $row["password"])) {
-            $_SESSION["email"] = $row["email"];
-            $_SESSION["id"] = $row["id"];
-            header("Location: list.php");
+        if (password_verify($_POST['pw'], $row['password'])) {
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['id'] = $row['id'];
+            header('Location: list.php');
         } else {
-            $message = "Die Zugangsdaten sind nicht korrekt!";
+            $message = 'Die Zugangsdaten sind nicht korrekt!';
         }
     } else {
-        $message = "Diese Email ist unbekannt!";
+        $message = 'Diese Email ist unbekannt!';
     }
 }
 ?>
+
 <!-- login Section -->
 <section id="login">
     <div class="login container">
