@@ -59,6 +59,12 @@ Da sich die Telefonnummer auch mal ändern kann, darf jedes Mitglied seine Telef
 Mitglied seine Telefonnummer ändern. Da der Verein nur lokale Mitglieder hat, dürfen die Telefonnummern nur mit “025” anfangen oder mit “017” (bei Handy-Nummern) und sie müssen mindestens 10-stellig sein. Es sind nur Zahlen erlaubt und ein “Minus-Zeichen”.
 ### Aufgabe 6:
 Der Tennisplatz besteht aus 8 Plätzen (1-8) und kann in der Zeit von 15:00 Uhr bis 20:00 Uhr bespielt werden für genau 1 Stunde je Spieler. Um 20:00 Uhr muss der letzte Spieler das Gelände verlassen haben und das Spiel beendet sein. Du fügst die Tennisplätze als eigene Entität in die Datenbank hinzu und vergibst eigenverantwortlich sinnvolle Felder zu jedem Platz, zumindest eine Nummerierung.
+
+#### Anforderungen
+1. [ ] Datenbanktabelle erstellen (Spalten: id, zeit, platz1, platz[..] ,platz8)
+2. [ ] In der Spalte Zeit die einzelnen Zeiten eintragen (15:00Uhr - 20:00 Uhr / stundenweise)
+3. [ ] Ein Platz ist maximal eine Stunde pro Spieler buchbar
+
 ### Aufgabe 7:
 Nach dem Anmelden sollen Mitglieder an einem Tag ihrer Wahl und zu einer Uhrzeit ihrer Wahl einen Platz ihrer Wahl buchen können. Optional können sie auch eintragen, wer ihr Tennispartner auf dem Platz ist.
 ### Aufgabe 8:
