@@ -10,8 +10,8 @@ $id = $_GET['id'];
 if (!isset($_SESSION['email'])) {
     header('Location: index.php');
 }
-$serverrankUser = getRank($_SESSION['email']);
-if (!($id == $_SESSION['id'] || ($serverrankUser == 1))) {
+$isTrainer = isTrainer($_SESSION['id']);
+if (!($id == $_SESSION['id'] || ($isTrainer))) {
     header('Location: index.php');
 }
 ?>
@@ -25,7 +25,7 @@ if (!($id == $_SESSION['id'] || ($serverrankUser == 1))) {
                 </div>
                 <div class="member-bottom">
                     <?php
-                    if (isset($_SESSION["email"])) {
+                    if (isset($_SESSION['email'])) {
                         if (!isset($_GET['id'])) {
                             $message = 'Keine ID verfügbar';
                         } else {

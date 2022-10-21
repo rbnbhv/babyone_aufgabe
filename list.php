@@ -22,11 +22,11 @@ include('views/header.php');
                 <?php
                 session_start();
                 $id = $_SESSION['id'];
-                if (!isset($_SESSION["email"])) {
-                    header("Location: login.php");
+                if (!isset($_SESSION['email'])) {
+                    header('Location: login.php');
                 } else {
-                    $serverrankUser = getRank($_SESSION['email']);
-                    if ($serverrankUser > 0) {
+                    $isTrainer = isTrainer($_SESSION['id']);
+                    if ($isTrainer) {
                         $mysql = getMysqlConnection();
                         $stmt = $mysql->prepare("SELECT * FROM member_v1");
                         $stmt->execute();

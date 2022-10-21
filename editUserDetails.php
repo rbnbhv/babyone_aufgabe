@@ -10,8 +10,8 @@ if (!isset($_SESSION['email'])) {
 }
 $id = $_POST['id'];
 
-$serverrankUser = getRank($_SESSION['email']);
-if (!($serverrankUser == 1)) {
+$isTrainer = isTrainer($_SESSION['id']);
+if (!($isTrainer)) {
     header('Location: index.php');
 }
 
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
     $stmt->bindParam(':forename', $forename);
     $stmt->bindParam(':email', $email);
     if ($stmt->execute()) {
-        header("Location: list.php");
+        header('Location: list.php');
     } else {
         $message = 'Query überprüfen.';
     }
@@ -35,7 +35,7 @@ if (isset($_POST['deleteUser'])) {
     $stmt = $mysql->prepare("DELETE FROM `member_v1` WHERE id = :id");
     $stmt->bindParam(':id', $id);
     if ($stmt->execute()) {
-        header("Location: list.php");
+        header('Location: list.php');
     } else {
         $message = 'Query überprüfen.';
     }
@@ -52,7 +52,7 @@ if (isset($_POST['deleteUser'])) {
                 </div>
                 <div class="edit-user-bottom">
                     <?php
-                    if (isset($_SESSION["email"])) {
+                    if (isset($_SESSION['email'])) {
                         if (!isset($_GET['id'])) {
                             $message = 'Keine ID verfügbar.';
                         } else {
