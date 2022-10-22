@@ -61,9 +61,13 @@ Mitglied seine Telefonnummer ändern. Da der Verein nur lokale Mitglieder hat, d
 Der Tennisplatz besteht aus 8 Plätzen (1-8) und kann in der Zeit von 15:00 Uhr bis 20:00 Uhr bespielt werden für genau 1 Stunde je Spieler. Um 20:00 Uhr muss der letzte Spieler das Gelände verlassen haben und das Spiel beendet sein. Du fügst die Tennisplätze als eigene Entität in die Datenbank hinzu und vergibst eigenverantwortlich sinnvolle Felder zu jedem Platz, zumindest eine Nummerierung.
 
 #### Anforderungen
-1. [X] Datenbanktabelle erstellen (Columns: id, time, court1, court[..] , court8)
-2. [ ] In der Spalte time die einzelnen Zeiten eintragen (15:00Uhr - 20:00 Uhr / stundenweise)
-3. [ ] Ein Platz ist maximal eine Stunde pro Spieler buchbar
+1. [X] Datenbanktabelle `courts` erstellen (Columns: id, courtNumber)
+2. [X] Datenbanktabelle `reservations` erstellen (Columns: date, court_id, member_id)
+3. [ ] Controller erstellen für:
+   4. [ ] Übersicht der Courts (Tabelle ausgeben mit allen Courts und Reservierungen)
+   5. [ ] Court reservieren (reserveCourt(DateTime $datetime, int $court, int $member))
+   6. [ ] Court reservieren prüft, ob der Court an dem Tag und Uhrzeit frei ist und legt dann einen Eintrag in der Tabelle an
+
 
 ### Aufgabe 7:
 Nach dem Anmelden sollen Mitglieder an einem Tag ihrer Wahl und zu einer Uhrzeit ihrer Wahl einen Platz ihrer Wahl buchen können. Optional können sie auch eintragen, wer ihr Tennispartner auf dem Platz ist.
