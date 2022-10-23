@@ -14,20 +14,19 @@ class Court
         return $stmt->fetchAll();
     }
 
-    public static function isReserved(int $court, string $date): bool
+    public static function getReservation(int $court, string $date): bool|array
     {
         $mysql = getMysqlConnection();
         $stmt = $mysql->prepare("SELECT * FROM reservation WHERE court_id = :courtId AND date = :date");
         $stmt->bindParam(':courtId', $court);
         $stmt->bindParam(':date', $date);
         $stmt->execute();
-        $item = $stmt->fetch();
-        return is_array($item);
+        return $stmt->fetch();
     }
 
     public static function reserve(string $datetime, int $courtId, int $memberId, int $partnerId): bool
     {
-        if (self::isReserved($courtId, $datetime)) {
+        if (self::getReservation($courtId, $datetime)) {
             return false;
         }
         $mysql = getMysqlConnection();
