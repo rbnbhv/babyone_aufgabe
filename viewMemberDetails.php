@@ -2,12 +2,11 @@
 include('includes/functions.php');
 include('views/header.php');
 
-session_start();
 $message = '';
 $id = $_GET['id'];
 
-if (!isset($_SESSION['email'])) {
-    header('Location: index.php');
+if (!User::isLoggedIn()) {
+    header('Location: login.php');
 }
 $isTrainer = isTrainer($_SESSION['id']);
 if (!($id == $_SESSION['id'] || $isTrainer)) {
@@ -16,7 +15,7 @@ if (!($id == $_SESSION['id'] || $isTrainer)) {
 
 
 if (isset($_POST['submit_member'])) {
-    editUserDetails($_POST['id'], $_POST['forename'], $_POST['phonenumber']);
+    User::editUserDetails($_POST['id'], $_POST['forename'], $_POST['phonenumber']);
     $message = 'Die Daten wurden erfolgreich geändert!';
 }
 

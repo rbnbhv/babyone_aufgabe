@@ -2,9 +2,6 @@
 require_once('includes/functions.php');
 include('views/header.php');
 
-session_start();
-session_destroy();
-session_start();
 $message = '';
 
 if (isset($_POST['submit_login'])) {
