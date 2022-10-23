@@ -8,6 +8,13 @@ class User
         return $isLoggedIn;
     }
 
+    public static function get(string $id): array
+    {
+        $mysql = getMysqlConnection();
+        $stmt = $mysql->prepare("SELECT * FROM member_v1 WHERE id = $id");
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 
     public static function getAll(): array
     {
@@ -53,6 +60,7 @@ class User
             return false;
         }
     }
+
     public static function isTrainer(string $id): bool
     {
         $mysql = getMysqlConnection();

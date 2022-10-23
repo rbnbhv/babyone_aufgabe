@@ -34,11 +34,7 @@ if (isset($_POST['submit_member'])) {
                         if (!isset($_GET['id'])) {
                             $message = 'Keine ID verfügbar';
                         } else {
-                            $mysql = getMysqlConnection();
-                            $stmt = $mysql->prepare("select * FROM member_v1 WHERE `id` = :id");
-                            $stmt->bindParam(':id', $_GET['id']);
-                            $stmt->execute();
-                            $result = $stmt->fetch();
+                            $result = User::get($_GET['id']);
                             ?>
 
                             <table class="table">
@@ -53,10 +49,6 @@ if (isset($_POST['submit_member'])) {
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $stmt = $mysql->prepare("SELECT * FROM member_v1 WHERE id = :id");
-                                    $stmt->bindParam(':id', $_GET['id']);
-                                    $stmt->execute();
-                                    $result = $stmt->fetch();
                                     ?>
                                     <tr>
                                         <td><?php echo $result['id'] ?></td>
