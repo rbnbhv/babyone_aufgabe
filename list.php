@@ -20,7 +20,6 @@ include('views/header.php');
                 </thead>
                 <tbody>
                 <?php
-                session_start();
                 $id = $_SESSION['id'];
                 if (!isset($_SESSION["email"])) {
                     header("Location: login.php");
