@@ -42,12 +42,19 @@ $courts = Court::getAll();
                             <?php
                             foreach ($courts as $court) {
                                 ?>
-                                <td><?php echo Court::isReserved($court['id'], $date) ? 'belegt' : 'frei'; ?></td><?php
+                                <td><?php
+                                $reservation = Court::getReservation($court['id'], $date);
+                                if ($reservation) {
+                                    echo User::getUserInformation($reservation['member_id'])['forename'] . '<br/>vs<br/>' . User::getUserInformation($reservation['partner'])['forename'];
+                                } else {
+                                    echo 'frei'; ?></td><?php
+                                }
                             }
                             ?>
                         </tr>
                         <?php
                     }
+
                     ?>
                 </table>
                 <a href="/courtReserve.php" type="button" class="cta-reserve">Platz buchen</a>

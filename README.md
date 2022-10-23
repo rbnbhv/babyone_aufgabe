@@ -78,6 +78,10 @@ Nach dem Anmelden sollen Mitglieder an einem Tag ihrer Wahl und zu einer Uhrzeit
 Die Mitglieder bekommen eine Liste der Platzbelegung angezeigt, wobei aufgelistet ist, welcher Platz wann von wem belegt ist.
 Da es zu Doppelbuchungen kam, baust du ein Feature ein, mit dem ein bereits gebuchter Platz nicht zur gleichen Zeit doppelt gebucht werden kann. Ansonsten erscheint ein Hinweis.
 
+#### Anforderungen
+1. [X] Name des Mitglieds in der Reservierungs-Tabelle ausgeben
+2. [X] Doppelbuchungen verhindern
+
 ### Zusatzaufgaben:
 1. Du erstellst ein Docker-File für das Projekt, damit andere ebenfalls an der Software mitprogrammieren können.
 2. Leg für das Project ein Git-Repository an.
