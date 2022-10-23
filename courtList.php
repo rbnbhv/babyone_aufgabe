@@ -2,17 +2,15 @@
 include('includes/functions.php');
 include('views/header.php');
 
+if (!User::isLoggedIn()) {
+    header('Location: login.php');
+}
+
 $message = '';
 
-const DATEFORMAT_DB = 'Y-m-d H:i';
-const DATEFORMAT_FRONTEND = 'd.m.Y H:i';
-const TIME_START = '15:00';
-const TIME_END = '20:00';
-
-$begin = new DateTime('today ' . TIME_START);
-$end = new DateTime('today ' . TIME_END);
+$begin = new DateTime('today ' . Court::TIME_START);
+$end = new DateTime('today ' . Court::TIME_END);
 $courts = Court::getAll();
-
 ?>
     <section id="list">
         <div class="list container">
@@ -44,15 +42,15 @@ $courts = Court::getAll();
                             <?php
                             foreach ($courts as $court) {
                                 ?>
-                                <td><?php echo isReserved($court['id'], $date) ? 'belegt' : 'frei'; ?></td><?php
+                                <td><?php echo Court::isReserved($court['id'], $date) ? 'belegt' : 'frei'; ?></td><?php
                             }
                             ?>
                         </tr>
                         <?php
                     }
-
                     ?>
                 </table>
+                <a href="/courtReserve.php" type="button" class="cta-reserve">Platz buchen</a>
             </div>
         </div>
     </section>
