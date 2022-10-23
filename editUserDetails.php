@@ -2,11 +2,10 @@
 require('includes/functions.php');
 require('views/header.php');
 
-session_start();
 $message = '';
 
-if (!isset($_SESSION['email'])) {
-    header('Location: index.php');
+if (!User::isLoggedIn()) {
+    header('Location: login.php');
 }
 
 $isTrainer = isTrainer($_SESSION['id']);
@@ -15,7 +14,7 @@ if (!$isTrainer) {
 }
 
 if (isset($_POST['submit'])) {
-    editUserDetails($_POST['id'], $_POST['forename'], $_POST['phonenumber']);
+    User::editUserDetails($_POST['id'], $_POST['forename'], $_POST['phonenumber']);
     $message = 'Die Daten wurden erfolgreich geändert!';
 }
 
@@ -45,10 +44,9 @@ if (isset($_POST['deleteUser'])) {
                         if (!isset($_GET['id'])) {
                             $message = 'Keine ID verfügbar.';
                         } else {
-                            $result = getUserInformation($_GET['id']);
+                            $result = User::getUserInformation($_GET['id']);
                             if ($result) {
                                 foreach ($result as $item) {
-
                                     ?>
                                     <table class="table">
                                         <form action="editUserDetails.php?id=<?php echo $_GET['id'] ?>" method="post">
