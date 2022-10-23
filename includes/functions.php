@@ -1,4 +1,5 @@
 <?php
+include('Court.php');
 
 const SERVERNAME = 'localhost';
 const USERNAME = 'root';
@@ -57,4 +58,15 @@ function isTrainer(string $id): bool
     $stmt->execute();
     $item = $stmt->fetch();
     return $item['isTrainer'];
+}
+
+function isReserved(int $court, string $date): bool
+{
+    $mysql = getMysqlConnection();
+    $stmt = $mysql->prepare("SELECT * FROM reservation WHERE court_id = :courtId AND date = :date");
+    $stmt->bindParam(':courtId', $court);
+    $stmt->bindParam(':date', $date);
+    $stmt->execute();
+    $item = $stmt->fetch();
+    return is_array($item);
 }
