@@ -66,9 +66,18 @@ Der Tennisplatz besteht aus 8 Plätzen (1-8) und kann in der Zeit von 15:00 Uhr 
 
 ### Aufgabe 7:
 Nach dem Anmelden sollen Mitglieder an einem Tag ihrer Wahl und zu einer Uhrzeit ihrer Wahl einen Platz ihrer Wahl buchen können. Optional können sie auch eintragen, wer ihr Tennispartner auf dem Platz ist.
+
+#### Anforderungen
+1. [] Controller für Reservierung einbauen, der nur nutzbar sein, wenn man eingeloggt ist
+2. [ ] Formular enthält: Datum, Uhrzeit, Platz, Spielpartner, eingeloggtes Mitglied
+3. [ ] Dafür Tabelle `reservation` erweitern (Column: partner hinzufügen)
+4. [ ] Beim absenden: Eintrag in Tabelle reservation anlegen
+5. [ ] Meldungen anzeigen lassen
+
 ### Aufgabe 8:
 Die Mitglieder bekommen eine Liste der Platzbelegung angezeigt, wobei aufgelistet ist, welcher Platz wann von wem belegt ist.
 Da es zu Doppelbuchungen kam, baust du ein Feature ein, mit dem ein bereits gebuchter Platz nicht zur gleichen Zeit doppelt gebucht werden kann. Ansonsten erscheint ein Hinweis.
+
 ### Zusatzaufgaben:
 1. Du erstellst ein Docker-File für das Projekt, damit andere ebenfalls an der Software mitprogrammieren können.
 2. Leg für das Project ein Git-Repository an.
