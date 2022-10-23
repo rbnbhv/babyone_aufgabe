@@ -19,7 +19,6 @@ create table reservation
 );
 
 
-
 INSERT INTO court (courtNumber) VALUES ('Platz 1');
 INSERT INTO court (courtNumber) VALUES ('Platz 2');
 INSERT INTO court (courtNumber) VALUES ('Platz 3');
