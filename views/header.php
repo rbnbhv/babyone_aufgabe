@@ -26,9 +26,10 @@
                     <div class="bar"></div>
                 </div>
                 <ul>
-                    <li><a href="/" data-after="Home">Home</a></li>
-                    <li><a href="/list.php" data-after="Mitglieder">Mitglieder</a></li>
-                    <li><a href="/login.php" data-after="Mitglieder">Login</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/list.php">Mitglieder</a></li>
+                    <li><a href="/login.php">Login</a></li>
+                    <li><a href="/courtList.php">Courts</a></li>
                 </ul>
             </div>
         </div>
