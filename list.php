@@ -24,7 +24,7 @@ include('views/header.php');
                 if (!isset($_SESSION["email"])) {
                     header("Location: login.php");
                 } else {
-                    $isTrainer = isTrainer($id);
+                    $isTrainer = User::isTrainer($id);
                     if ($isTrainer) {
                         $mysql = getMysqlConnection();
                         $stmt = $mysql->prepare("SELECT * FROM member_v1");

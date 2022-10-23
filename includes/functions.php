@@ -16,13 +16,3 @@ function getMysqlConnection(): PDO
     $mysql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $mysql;
 }
-
-function isTrainer(string $id): bool
-{
-    $mysql = getMysqlConnection();
-    $stmt = $mysql->prepare("SELECT isTrainer FROM member_v1 WHERE id = :id");
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->execute();
-    $item = $stmt->fetch();
-    return $item['isTrainer'];
-}

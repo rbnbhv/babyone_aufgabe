@@ -33,10 +33,10 @@ class User
     public static function getUserInformation(string $id): array
     {
         $mysql = getMysqlConnection();
-        $stmt = $mysql->prepare("select * FROM member_v1 WHERE `id` = :id");
+        $stmt = $mysql->prepare("select * FROM member_v1 WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetch();
     }
 
     public static function editUserDetails(int $id, string $forename, string $phonenumber): bool
@@ -53,4 +53,14 @@ class User
             return false;
         }
     }
+    public static function isTrainer(string $id): bool
+    {
+        $mysql = getMysqlConnection();
+        $stmt = $mysql->prepare("SELECT isTrainer FROM member_v1 WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $item = $stmt->fetch();
+        return $item['isTrainer'];
+    }
 }
+

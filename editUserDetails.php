@@ -8,7 +8,7 @@ if (!User::isLoggedIn()) {
     header('Location: login.php');
 }
 
-$isTrainer = isTrainer($_SESSION['id']);
+$isTrainer = User::isTrainer($_SESSION['id']);
 if (!$isTrainer) {
     header('Location: index.php');
 }
@@ -45,40 +45,35 @@ if (isset($_POST['deleteUser'])) {
                             $message = 'Keine ID verfügbar.';
                         } else {
                             $result = User::getUserInformation($_GET['id']);
-                            if ($result) {
-                                foreach ($result as $item) {
-                                    ?>
-                                    <table class="table">
-                                        <form action="editUserDetails.php?id=<?php echo $_GET['id'] ?>" method="post">
-                                            <div class=form-group>
-                                                <input type="hidden" name="id" value="<?php echo $item['id'] ?>"><br>
-                                                <label for="fname">Vorname</label><br>
-                                                <input type="text" name="forename"
-                                                       value="<?php echo $item['forename'] ?>"
-                                                       placeholder="Vorname"
-                                                       class="form-control" required><br>
-                                                <label for="email">Email</label><br>
-                                                <input type="email" name="email" value="<?php echo $item['email'] ?>"
-                                                       placeholder="Email"
-                                                       class="form-control" required><br>
-                                                <label for="phone">Telefonnummer</label><br>
-                                                <input type="tel" minlength="10"
-                                                       title="Die Telefonnummer muss mindestens 10 Zeichen haben"
-                                                       name="phonenumber" value="<?php echo $item['phonenumber'] ?>"
-                                                       pattern="0(17|25)([0-9]{0,})([-]{0,1})([0-9]{4,})"/><br>
-                                                <button type="submit" name="submit" class="edit-user-btn">Daten
-                                                    Editieren
-                                                </button>
-                                                <button type="submit" name="deleteUser" class="edit-user-btn">Mitglied
-                                                    löschen
-                                                </button>
-                                        </form>
+                            ?>
+                            <table class="table">
+                                <form action="editUserDetails.php?id=<?php echo $_GET['id'] ?>" method="post">
+                                    <div class=form-group>
+                                        <input type="hidden" name="id" value="<?php echo $result['id'] ?>"><br>
+                                        <label for="fname">Vorname</label><br>
+                                        <input type="text" name="forename"
+                                               value="<?php echo $result['forename'] ?>"
+                                               placeholder="Vorname"
+                                               class="form-control" required><br>
+                                        <label for="email">Email</label><br>
+                                        <input type="email" name="email" value="<?php echo $result['email'] ?>"
+                                               placeholder="Email"
+                                               class="form-control" required><br>
+                                        <label for="phone">Telefonnummer</label><br>
+                                        <input type="tel" minlength="10"
+                                               title="Die Telefonnummer muss mindestens 10 Zeichen haben"
+                                               name="phonenumber" value="<?php echo $result['phonenumber'] ?>"
+                                               pattern="0(17|25)([0-9]{0,})([-]{0,1})([0-9]{4,})"/><br>
+                                        <button type="submit" name="submit" class="edit-user-btn">Daten
+                                            Editieren
+                                        </button>
+                                        <button type="submit" name="deleteUser" class="edit-user-btn">Mitglied löschen
+                                        </button>
+                                </form>
+                                <br>
+                            </table>
+                            <?php
 
-                                        <br>
-                                    </table>
-                                    <?php
-                                }
-                            }
                         }
                     } else {
                         $message = 'Keine gültige Session.';

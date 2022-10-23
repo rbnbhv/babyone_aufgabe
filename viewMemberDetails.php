@@ -8,7 +8,7 @@ $id = $_GET['id'];
 if (!User::isLoggedIn()) {
     header('Location: login.php');
 }
-$isTrainer = isTrainer($_SESSION['id']);
+$isTrainer = User::isTrainer($_SESSION['id']);
 if (!($id == $_SESSION['id'] || $isTrainer)) {
     header('Location: index.php');
 }
