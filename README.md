@@ -68,11 +68,11 @@ Der Tennisplatz besteht aus 8 Plätzen (1-8) und kann in der Zeit von 15:00 Uhr 
 Nach dem Anmelden sollen Mitglieder an einem Tag ihrer Wahl und zu einer Uhrzeit ihrer Wahl einen Platz ihrer Wahl buchen können. Optional können sie auch eintragen, wer ihr Tennispartner auf dem Platz ist.
 
 #### Anforderungen
-1. [] Controller für Reservierung einbauen, der nur nutzbar sein, wenn man eingeloggt ist
-2. [ ] Formular enthält: Datum, Uhrzeit, Platz, Spielpartner, eingeloggtes Mitglied
-3. [ ] Dafür Tabelle `reservation` erweitern (Column: partner hinzufügen)
-4. [ ] Beim absenden: Eintrag in Tabelle reservation anlegen
-5. [ ] Meldungen anzeigen lassen
+1. [X] Controller für Reservierung einbauen, der nur nutzbar sein, wenn man eingeloggt ist
+2. [X] Formular enthält: Datum, Uhrzeit, Platz, Spielpartner, eingeloggtes Mitglied
+3. [X] Dafür Tabelle `reservation` erweitern (Column: partner hinzufügen)
+4. [X] Beim absenden: Eintrag in Tabelle reservation anlegen
+5. [X] Meldungen anzeigen lassen
 
 ### Aufgabe 8:
 Die Mitglieder bekommen eine Liste der Platzbelegung angezeigt, wobei aufgelistet ist, welcher Platz wann von wem belegt ist.
