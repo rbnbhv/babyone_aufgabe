@@ -19,13 +19,11 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_POST['deleteUser'])) {
-    $mysql = getMysqlConnection();
-    $stmt = $mysql->prepare("DELETE FROM `member_v1` WHERE id = :id");
-    $stmt->bindParam(':id', $_POST['id']);
-    if ($stmt->execute()) {
-        header("Location: list.php");
-    } else {
-        $message = 'Query überprüfen.';
+    if (User::delete($_POST['id'])) {
+        header('Location: list.php');
+    }
+    else {
+    $message = 'Der User konnte nicht gelöscht werden!';
     }
 }
 ?>
@@ -44,25 +42,25 @@ if (isset($_POST['deleteUser'])) {
                         if (!isset($_GET['id'])) {
                             $message = 'Keine ID verfügbar.';
                         } else {
-                            $result = User::getUserInformation($_GET['id']);
+                            $member = User::getUserInformation($_GET['id']);
                             ?>
                             <table class="table">
                                 <form action="editUserDetails.php?id=<?php echo $_GET['id'] ?>" method="post">
                                     <div class=form-group>
-                                        <input type="hidden" name="id" value="<?php echo $result['id'] ?>"><br>
+                                        <input type="hidden" name="id" value="<?php echo $member['id'] ?>"><br>
                                         <label for="fname">Vorname</label><br>
                                         <input type="text" name="forename"
-                                               value="<?php echo $result['forename'] ?>"
+                                               value="<?php echo $member['forename'] ?>"
                                                placeholder="Vorname"
                                                class="form-control" required><br>
                                         <label for="email">Email</label><br>
-                                        <input type="email" name="email" value="<?php echo $result['email'] ?>"
+                                        <input type="email" name="email" value="<?php echo $member['email'] ?>"
                                                placeholder="Email"
                                                class="form-control" required><br>
                                         <label for="phone">Telefonnummer</label><br>
                                         <input type="tel" minlength="10"
                                                title="Die Telefonnummer muss mindestens 10 Zeichen haben"
-                                               name="phonenumber" value="<?php echo $result['phonenumber'] ?>"
+                                               name="phonenumber" value="<?php echo $member['phonenumber'] ?>"
                                                pattern="0(17|25)([0-9]{0,})([-]{0,1})([0-9]{4,})"/><br>
                                         <button type="submit" name="submit" class="edit-user-btn">Daten
                                             Editieren

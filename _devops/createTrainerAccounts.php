@@ -8,5 +8,5 @@ $trainer[] = ['forename' => 'Chris', 'email' => 'chris@btv.de', 'password' => 'c
 $trainer[] = ['forename' => 'Bert', 'email' => 'bert@btv.de', 'password' => 'bert123', 'isTrainer' => 1, 'phonenumber' => '0174-123456'];
 
 foreach($trainer as $item) {
-    User::registerUser($item['forename'], $item['email'], $item['password'], $item['isTrainer'], $item['']);
+    User::registerUser($item['forename'], $item['email'], $item['password'], $item['isTrainer'], $item['phonenumber']);
 }

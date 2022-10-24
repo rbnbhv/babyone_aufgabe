@@ -4,8 +4,7 @@ class User
 {
     public static function isLoggedIn(): bool
     {
-        $isLoggedIn = $_SESSION['id'] ? true : false;
-        return $isLoggedIn;
+        return (bool)$_SESSION['id'];
     }
 
     public static function get(string $id): array
@@ -69,6 +68,18 @@ class User
         $stmt->execute();
         $item = $stmt->fetch();
         return $item['isTrainer'];
+    }
+
+    public static function delete(int $id): bool
+    {
+        $mysql = getMysqlConnection();
+        $stmt = $mysql->prepare('DELETE FROM member_v1 WHERE id = :id');
+        $stmt->bindParam(':id', $id);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
