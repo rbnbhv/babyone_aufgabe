@@ -9,7 +9,7 @@ class Court
     public static function getAll(): array
     {
         $mysql = getMysqlConnection();
-        $stmt = $mysql->prepare("SELECT * FROM court");
+        $stmt = $mysql->prepare('SELECT * FROM court');
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -17,7 +17,7 @@ class Court
     public static function getReservation(int $court, string $date): bool|array
     {
         $mysql = getMysqlConnection();
-        $stmt = $mysql->prepare("SELECT * FROM reservation WHERE court_id = :courtId AND date = :date");
+        $stmt = $mysql->prepare('SELECT * FROM reservation WHERE court_id = :courtId AND date = :date');
         $stmt->bindParam(':courtId', $court);
         $stmt->bindParam(':date', $date);
         $stmt->execute();
@@ -30,7 +30,7 @@ class Court
             return false;
         }
         $mysql = getMysqlConnection();
-        $stmt = $mysql->prepare("INSERT INTO reservation (date, court_id, member_id, partner) VALUES (:date, :court_id, :member_id, :partner)");
+        $stmt = $mysql->prepare('INSERT INTO reservation (date, court_id, member_id, partner) VALUES (:date, :court_id, :member_id, :partner)');
         $stmt->bindParam(':date', $datetime);
         $stmt->bindParam(':court_id', $courtId);
         $stmt->bindParam(':member_id', $memberId);
