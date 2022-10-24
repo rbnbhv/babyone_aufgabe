@@ -69,5 +69,17 @@ class User
         $item = $stmt->fetch();
         return $item['isTrainer'];
     }
+
+    public static function delete(int $id): bool
+    {
+        $mysql = getMysqlConnection();
+        $stmt = $mysql->prepare('DELETE FROM member_v1 WHERE id = :id');
+        $stmt->bindParam(':id', $id);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
