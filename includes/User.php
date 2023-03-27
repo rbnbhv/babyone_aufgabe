@@ -10,7 +10,8 @@ class User
     public static function get(string $id): array
     {
         $mysql = getMysqlConnection();
-        $stmt = $mysql->prepare('SELECT * FROM member_v1 WHERE id = $id');
+        $stmt = $mysql->prepare('SELECT * FROM member_v1 WHERE id = :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch();
     }
